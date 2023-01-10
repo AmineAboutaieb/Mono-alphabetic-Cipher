@@ -17,6 +17,8 @@ def cipher(message, cipher_alphabet):
         if letter.isalpha():
             letter_alphabet_index = alphabet.index(str.lower(letter))
             cipher += cipher_alphabet[letter_alphabet_index]
+        elif letter == ' ':
+            cipher += ' '
 
 
     return cipher
@@ -28,8 +30,11 @@ def cipher(message, cipher_alphabet):
 def decipher(cipher, cipher_alphabet):
     message = ""
     for letter in cipher:
+        if letter.isalpha():
             cipher_alphabet_index = cipher_alphabet.index(str.lower(letter))
             message += alphabet[cipher_alphabet_index]
+        elif letter == ' ':
+            message += ' '
 
     return message
 
